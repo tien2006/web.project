@@ -15,6 +15,11 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import ProductDetail from './pages/ProductDetail';
+import Search from './pages/Search';
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout'; // <-- import trang mới Checkout
+import OrderHistory from './pages/OrderHistory';
+
 
 function App() {
   return (
@@ -28,8 +33,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/products/:id" element={<ProductDetail />} />
-        {/* Bỏ cái Route này vì trùng với trên
-        <Route path="/" element={<Home />} /> */}
+        <Route path="/search" element={<Search />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} /> {/* route mới cho thanh toán */}
+        <Route path="/order-history" element={<OrderHistory />} />
       </Routes>
       <Footer />
       <FloatingContact />

@@ -9,12 +9,12 @@ const Footer = () => {
           <img src="/logo192.png" alt="Logo" style={{ height: '50px', marginBottom: '10px' }} />
           <h3>CÔNG TY CỔ PHẦN GIẢI PHÁP TỰ ĐỘNG HÓA TTA</h3>
           <p>
-            Trụ sở chính: 189 Phan Trọng Tuệ, Thanh Liệt, Hà Nội<br />
-            Chi nhánh HCM: Số 1 Lê Đức Thọ, Tân Thới Hiệp, TP.HCM<br />
-            VP Vinh: Km2, số 9, Đại lộ Vinh - Cửa Lò, TP. Vinh, Nghệ An<br />
-            Hotline: (+84)965 800 166 (Call, Zalo, WhatsApp)<br />
-            Mr. Thưởng: (+84)94 552 5520<br />
-            Email: info@tta-automation.vn
+            Trụ sở chính: Liên Chiểu, Đà Nẵng<br />
+            Chi nhánh HCM: Tân Thới Hiệp, TP.HCM<br />
+            VP Vinh: TP. Vinh, Nghệ An<br />
+            Hotline: (+84)889322577 (Call, Zalo, WhatsApp)<br />
+            Mr. Tiến: (+84)889322577<br />
+            Email: tien200620@gmail.com
           </p>
         </div>
 
@@ -22,9 +22,10 @@ const Footer = () => {
         <div style={{ flex: '1 1 150px' }}>
           <h4>Lĩnh vực kinh doanh</h4>
           <ul>
-            <li>Công nghiệp</li>
-            <li>Đào tạo chuyên ngành</li>
-            <li>Dân sinh</li>
+            <li>Thiết bị điện công nghiệp</li>
+            <li>Đào tạo Tự động hóa - Robot</li>
+            <li>Thiết bị chiết rót</li>
+            <li>Thiết bị bán dẫn</li>
             <li>Hệ sinh thái TTA</li>
           </ul>
         </div>

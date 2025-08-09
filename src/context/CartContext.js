@@ -1,55 +1,95 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
+
+const STORAGE_KEY = 'my_cart_items';
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : [];
+    } catch {
+      return [];
+    }
+  });
 
-  // Thêm sản phẩm vào giỏ
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cartItems));
+    } catch {}
+  }, [cartItems]);
+
   const addToCart = (product) => {
-    setCartItems((prevItems) => {
-      // Kiểm tra sản phẩm đã có trong giỏ chưa
-      const existing = prevItems.find(item => item.id === product.id);
-      if (existing) {
-        // Nếu có thì tăng số lượng
-        return prevItems.map(item =>
+    setCartItems(prev => {
+      const exist = prev.find(item => item.id === product.id);
+      if (exist) {
+        return prev.map(item =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
-        // Nếu chưa có thì thêm mới với quantity = 1
-        return [...prevItems, { ...product, quantity: 1 }];
+        return [...prev, { ...product, quantity: 1 }];
       }
     });
   };
 
-  // Xoá sản phẩm khỏi giỏ
   const removeFromCart = (productId) => {
-    setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
+    setCartItems(prev => prev.filter(item => item.id !== productId));
   };
 
-  // Giảm số lượng sản phẩm trong giỏ
   const decreaseQuantity = (productId) => {
-    setCartItems(prevItems =>
-      prevItems
+    setCartItems(prev =>
+      prev
         .map(item =>
           item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
         )
-        .filter(item => item.quantity > 0) // loại bỏ nếu số lượng = 0
+        .filter(item => item.quantity > 0)
     );
   };
 
-  // Tổng số lượng sản phẩm trong giỏ
+  // Thêm hàm cập nhật số lượng (updateQuantity)
+  const updateQuantity = (productId, newQuantity) => {
+    if (newQuantity < 1) return; // Không cho số lượng nhỏ hơn 1
+    setCartItems(prev =>
+      prev.map(item =>
+        item.id === productId ? { ...item, quantity: newQuantity } : item
+      )
+    );
+  };
+
+  const clearCart = () => setCartItems([]);
+
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  const shippingFee = 30000; // Phí vận chuyển cố định 30k VND
+
+  const VAT_RATE = 0.1; // 10% VAT
+
+  const vatAmount = totalPrice * VAT_RATE;
+
+  const totalPayment = totalPrice + shippingFee + vatAmount;
+
   return (
-    <CartContext.Provider value={{
-      cartItems,
-      addToCart,
-      removeFromCart,
-      decreaseQuantity,
-      totalItems,
-    }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        decreaseQuantity,
+        updateQuantity,
+        clearCart,
+        totalItems,
+        totalPrice,
+        shippingFee,
+        vatAmount,
+        totalPayment,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
 };
+
+export const useCart = () => useContext(CartContext);
