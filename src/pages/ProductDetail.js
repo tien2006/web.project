@@ -176,7 +176,7 @@ const ProductDetail = () => {
             {reviews.map(r => (
               <li key={r.id} style={{ marginBottom: 20, borderBottom: '1px solid #ddd', paddingBottom: 10 }}>
                 <strong>{r.name}</strong> - {r.rating} sao
-                <p style={{ marginTop: 6 }}>{r.comment}</p>
+                <p style={{ marginTop: 5 }}>{r.comment}</p>
               </li>
             ))}
           </ul>
