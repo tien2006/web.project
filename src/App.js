@@ -19,24 +19,47 @@ import Search from './pages/Search';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout'; // <-- import trang mới Checkout
 import OrderHistory from './pages/OrderHistory';
-
+import ScrollToTop from './components/ScrollToTop';
+import CartIcon from './components/CartIcon';
+import Solutions from './pages/Solutions';
+import SolutionDetail from './pages/SolutionDetail';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
+      <CartIcon />
       <Routes>
         <Route path="/" element={<Home />} />
+
+        {/* Trang chi tiết sản phẩm */}
+        <Route path="/product/:id" element={<ProductDetail />} />
+
+        {/* Trang danh sách sản phẩm với params category, type, model (tùy chọn) */}
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:category" element={<Products />} />
+        <Route path="/products/:category/:type" element={<Products />} />
+        <Route path="/products/:category/:type/:model" element={<Products />} />
+        
+
+        
+
         <Route path="/services" element={<Services />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/products/:id" element={<ProductDetail />} />
+
+        
+
         <Route path="/search" element={<Search />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} /> {/* route mới cho thanh toán */}
         <Route path="/order-history" element={<OrderHistory />} />
+        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/solutions/:solutionId" element={<SolutionDetail />} />
+
+
       </Routes>
       <Footer />
       <FloatingContact />

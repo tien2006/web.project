@@ -13,7 +13,7 @@ const CartIcon = () => {
       onClick={() => navigate('/cart')}
       style={{
         position: 'fixed',
-        top: 20,
+        top: 100,
         right: 20,
         cursor: 'pointer',
         zIndex: 1000,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { FaShoppingCart } from 'react-icons/fa';
 
@@ -59,18 +59,45 @@ const allProducts = [
     description: 'Bộ điều khiển lập trình dòng L-Series cho ứng dụng công nghiệp.',
     price: 12000000,
   },
-  // Bạn có thể thêm các sản phẩm khác vào đây...
+  // Thêm sản phẩm mới theo category phù hợp
+  {
+    id: 6,
+    name: 'Bộ điều khiển PLC Delta DVP',
+    brand: 'Delta',
+    type: 'PLC',
+    category: 'Bộ điều khiển PLC',
+    model: '',
+    image: 'https://via.placeholder.com/150',
+    description: 'Bộ điều khiển PLC Delta dòng DVP.',
+    price: 7000000,
+  },
+  {
+    id: 7,
+    name: 'Động cơ Servo Yaskawa',
+    brand: 'Yaskawa',
+    type: 'Servo',
+    category: 'Servo',
+    model: '',
+    image: 'https://via.placeholder.com/150',
+    description: 'Động cơ Servo Yaskawa hiệu suất cao.',
+    price: 25000000,
+  },
+  {
+    id: 8,
+    name: 'Động cơ Servo Yaskawa',
+    brand: 'Yaskawa',
+    type: 'Industrial PC',
+    category: 'Tự động hóa',
+    model: '1',
+    image: 'https://via.placeholder.com/150',
+    description: 'Động cơ Servo Yaskawa hiệu suất cao.',
+    price: 25000000,
+  },
 ];
 
-// Format tiền VNĐ
 const formatVNĐ = (number) => {
   return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 };
-
-// Hook tiện ích lấy query param
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
 
 const CartIcon = () => {
   const navigate = useNavigate();
@@ -112,26 +139,24 @@ const CartIcon = () => {
 };
 
 const Products = () => {
-  const query = useQuery();
-
-  // Lấy giá trị filter từ query param nếu có
-  const categoryFromQuery = query.get('category') || 'Tất cả';
-  const modelFromQuery = query.get('model') || 'Tất cả';
+  const { category, type, model } = useParams(); // Lấy param từ url
+  //const location = useLocation();
 
   const [brandFilter, setBrandFilter] = useState('Tất cả');
-  const [typeFilter, setTypeFilter] = useState('Tất cả');
-  const [categoryFilter, setCategoryFilter] = useState(categoryFromQuery);
-  const [modelFilter, setModelFilter] = useState(modelFromQuery);
+  //const [typeFilter, setTypeFilter] = useState('Tất cả');
+  const [categoryFilter, setCategoryFilter] = useState(category || 'Tất cả');
+  const [typeFilter, setTypeFilter] = useState(type || 'Tất cả');
+  const [modelFilter, setModelFilter] = useState(model || 'Tất cả');
   const [searchTerm, setSearchTerm] = useState('');
   const { addToCart } = useCart();
 
-  // Đồng bộ khi URL query param thay đổi
+  // Khi URL param thay đổi thì cập nhật filter tương ứng
   useEffect(() => {
-    setCategoryFilter(categoryFromQuery);
-    setModelFilter(modelFromQuery);
-  }, [categoryFromQuery, modelFromQuery]);
+    setCategoryFilter(category || 'Tất cả');
+    setTypeFilter(type || 'Tất cả');
+    setModelFilter(model || 'Tất cả');
+  }, [category, type, model]);
 
-  // Lấy danh sách các category và model có trong allProducts
   const categories = ['Tất cả', ...new Set(allProducts.map((p) => p.category).filter(c => c))];
   const modelsForTypePLC = ['Tất cả', ...new Set(allProducts.filter(p => p.type === 'PLC').map(p => p.model).filter(m => m))];
 
@@ -141,6 +166,8 @@ const Products = () => {
     const matchesCategory = categoryFilter === 'Tất cả' || product.category === categoryFilter;
     const matchesModel = modelFilter === 'Tất cả' || product.model === modelFilter;
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+
+    console.log(`Kiểm tra: ${product.name} - Type: ${product.type} - matchesType: ${matchesType} - typeFilter: ${typeFilter}`);
 
     return matchesBrand && matchesType && matchesCategory && matchesModel && matchesSearch;
   });
@@ -187,6 +214,8 @@ const Products = () => {
             <option value="Mitsubishi">Mitsubishi</option>
             <option value="Siemens">Siemens</option>
             <option value="Omron">Omron</option>
+            <option value="Delta">Delta</option>
+            <option value="Yaskawa">Yaskawa</option>
           </select>
         </label>
 
@@ -197,6 +226,7 @@ const Products = () => {
             <option value="PLC">PLC</option>
             <option value="HMI">HMI</option>
             <option value="Cảm biến">Cảm biến</option>
+            <option value="Servo">Servo</option>
           </select>
         </label>
 
@@ -261,7 +291,7 @@ const Products = () => {
               <p style={{ fontWeight: 'bold', color: '#e63946' }}>{formatVNĐ(product.price)}</p>
 
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '12px' }}>
-                <Link to={`/products/${product.id}`} style={{ color: '#007bff', textDecoration: 'none' }}>
+                <Link to={`/product/${product.id}`} style={{ color: '#007bff', textDecoration: 'none' }}>
                   Xem chi tiết
                 </Link>
                 <button
@@ -289,3 +319,4 @@ const Products = () => {
 };
 
 export default Products;
+
