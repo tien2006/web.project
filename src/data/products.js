@@ -10,7 +10,7 @@ const featuredProducts = [
     price: 5500000, // Giá dạng số
   },
   {
-    id: 1,
+    id: 2,
     name: 'PLC Mitsubishi FX5G',
     category: 'PLC',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
@@ -18,7 +18,7 @@ const featuredProducts = [
     price: 5500000, // Giá dạng số
   },
   {
-    id: 1,
+    id: 3,
     name: 'PLC Mitsubishi FX5U',
     category: 'PLC',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
@@ -26,7 +26,7 @@ const featuredProducts = [
     price: 5500000, // Giá dạng số
   },
   {
-    id: 1,
+    id: 4,
     name: 'PLC Mitsubishi FX5U',
     category: 'PLC',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
@@ -34,7 +34,7 @@ const featuredProducts = [
     price: 5500000, // Giá dạng số
   },
   {
-    id: 1,
+    id: 5,
     name: 'PLC Mitsubishi FX5U',
     category: 'PLC',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
@@ -42,7 +42,7 @@ const featuredProducts = [
     price: 5500000, // Giá dạng số
   },
   {
-    id: 1,
+    id: 6,
     name: 'PLC Mitsubishi FX5U',
     category: 'PLC',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
@@ -50,7 +50,7 @@ const featuredProducts = [
     price: 5500000, // Giá dạng số
   },
   {
-    id: 1,
+    id: 7,
     name: 'PLC Mitsubishi FX5U',
     category: 'PLC',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
@@ -58,7 +58,7 @@ const featuredProducts = [
     price: 5500000, // Giá dạng số
   },
   {
-    id: 1,
+    id: 8,
     name: 'PLC Mitsubishi FX5U',
     category: 'PLC',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
@@ -66,7 +66,7 @@ const featuredProducts = [
     price: 5500000, // Giá dạng số
   },
   {
-    id: 1,
+    id: 9,
     name: 'PLC Mitsubishi FX5U',
     category: 'PLC',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
@@ -74,7 +74,7 @@ const featuredProducts = [
     price: 5500000, // Giá dạng số
   },
   {
-    id: 1,
+    id: 10,
     name: 'PLC Mitsubishi FX5U',
     category: 'PLC',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
@@ -82,7 +82,7 @@ const featuredProducts = [
     price: 5500000, // Giá dạng số
   },
   {
-    id: 200,
+    id: 201,
     name: 'Cảm biến Omron E3Z',
     category: 'Cảm biến',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
@@ -90,7 +90,7 @@ const featuredProducts = [
     price: 750000,
   },
   {
-    id: 200,
+    id: 202,
     name: 'Cảm biến Omron E3Z',
     category: 'Cảm biến',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
@@ -98,7 +98,7 @@ const featuredProducts = [
     price: 750000,
   },
   {
-    id: 200,
+    id: 203,
     name: 'Cảm biến Omron E3Z',
     category: 'Cảm biến',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
@@ -106,7 +106,7 @@ const featuredProducts = [
     price: 750000,
   },
   {
-    id: 200,
+    id: 204,
     name: 'Cảm biến Omron E3Z',
     category: 'Cảm biến',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
@@ -114,7 +114,7 @@ const featuredProducts = [
     price: 750000,
   },
   {
-    id: 200,
+    id: 205,
     name: 'Cảm biến Omron E3Z',
     category: 'Cảm biến',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
@@ -122,7 +122,7 @@ const featuredProducts = [
     price: 750000,
   },
   {
-    id: 200,
+    id: 206,
     name: 'Cảm biến Omron E3Z',
     category: 'Cảm biến',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
@@ -130,7 +130,7 @@ const featuredProducts = [
     price: 750000,
   },
   {
-    id: 200,
+    id: 207,
     name: 'Cảm biến Omron E3Z',
     category: 'Cảm biến',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
@@ -138,7 +138,7 @@ const featuredProducts = [
     price: 750000,
   },
   {
-    id: 200,
+    id: 208,
     name: 'Cảm biến Omron E3Z',
     category: 'Cảm biến',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
@@ -146,7 +146,7 @@ const featuredProducts = [
     price: 750000,
   },
   {
-    id: 200,
+    id: 209,
     name: 'Cảm biến Omron E3Z',
     category: 'Cảm biến',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
@@ -154,7 +154,7 @@ const featuredProducts = [
     price: 750000,
   },
   {
-    id: 200,
+    id: 210,
     name: 'Cảm biến Omron E3Z',
     category: 'Cảm biến',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
@@ -162,7 +162,7 @@ const featuredProducts = [
     price: 750000,
   },
   {
-    id: 300,
+    id: 301,
     name: 'Màn hình HMI Siemens KTP700',
     category: 'HMI',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/ktp700_ooqw1v.webp',
@@ -170,7 +170,7 @@ const featuredProducts = [
     price: 8900000,
   },
   {
-    id: 300,
+    id: 302,
     name: 'Màn hình HMI Siemens KTP700',
     category: 'HMI',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/ktp700_ooqw1v.webp',
@@ -178,7 +178,7 @@ const featuredProducts = [
     price: 8900000,
   },
   {
-    id: 300,
+    id: 303,
     name: 'Màn hình HMI Siemens KTP700',
     category: 'HMI',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/ktp700_ooqw1v.webp',
@@ -186,7 +186,7 @@ const featuredProducts = [
     price: 8900000,
   },
   {
-    id: 300,
+    id: 304,
     name: 'Màn hình HMI Siemens KTP700',
     category: 'HMI',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/ktp700_ooqw1v.webp',
@@ -194,7 +194,7 @@ const featuredProducts = [
     price: 8900000,
   },
   {
-    id: 300,
+    id: 305,
     name: 'Màn hình HMI Siemens KTP700',
     category: 'HMI',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/ktp700_ooqw1v.webp',
@@ -202,7 +202,7 @@ const featuredProducts = [
     price: 8900000,
   },
   {
-    id: 300,
+    id: 306,
     name: 'Màn hình HMI Siemens KTP700',
     category: 'HMI',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/ktp700_ooqw1v.webp',
@@ -210,7 +210,7 @@ const featuredProducts = [
     price: 8900000,
   },
   {
-    id: 300,
+    id: 307,
     name: 'Màn hình HMI Siemens KTP700',
     category: 'HMI',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/ktp700_ooqw1v.webp',
@@ -218,7 +218,7 @@ const featuredProducts = [
     price: 8900000,
   },
   {
-    id: 300,
+    id: 308,
     name: 'Màn hình HMI Siemens KTP700',
     category: 'HMI',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/ktp700_ooqw1v.webp',
@@ -226,7 +226,7 @@ const featuredProducts = [
     price: 8900000,
   },
   {
-    id: 300,
+    id: 309,
     name: 'Màn hình HMI Siemens KTP700',
     category: 'HMI',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/ktp700_ooqw1v.webp',
@@ -234,7 +234,7 @@ const featuredProducts = [
     price: 8900000,
   },
   {
-    id: 300,
+    id: 310,
     name: 'Màn hình HMI Siemens KTP700',
     category: 'HMI',
     image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/ktp700_ooqw1v.webp',

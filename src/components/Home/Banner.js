@@ -14,7 +14,7 @@ const Banner = () => {
       {/* Nội dung dưới ảnh */}
       <div style={{ padding: '30px 20px' }}>
         <h1 style={{ fontSize: '36px', marginBottom: '15px' }}>
-          Giải pháp tự động hóa thông minh kk
+          Giải pháp tự động hóa thông minh 
         </h1>
 
         <p style={{ fontSize: '18px', marginBottom: '25px', color: '#555' }}>
