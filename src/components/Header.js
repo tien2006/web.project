@@ -45,6 +45,12 @@ const Header = () => {
   const handleCloseSubSubMenu = () => {
     setOpenSubSubMenu(null);
   };
+  const solutions = [
+  { id: 'automation', title: 'Tự động hóa nhà máy' },
+  { id: 'remote-control', title: 'Điều khiển và giám sát từ xa' },
+  { id: 'iot-integration', title: 'Tích hợp IoT trong sản xuất' },
+  { id: 'data-analysis', title: 'Phân tích dữ liệu sản xuất' },
+];
 
   return (
     <>
@@ -162,9 +168,16 @@ const Header = () => {
               <Link to="/solutions" style={navLink}>Giải pháp </Link>
               {openMenu === 'solutions' && (
                 <div style={dropdown}>
-                  <Link to="/solutions/industry1" style={dropdownItem}>Giải pháp công nghiệp</Link>
-                  <Link to="/solutions/industry2" style={dropdownItem}>Tự động hóa nhà máy</Link>
-                  <Link to="/solutions/industry3" style={dropdownItem}>Điều khiển từ xa</Link>
+                  {solutions.map(({ id, title }) => (
+                    <Link 
+                      key={id} 
+                      to={`/solutions/${id}`} 
+                      style={dropdownItem}
+                      onClick={() => handleCloseMenu()} // Đóng menu sau khi click
+                    >
+                      {title}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>

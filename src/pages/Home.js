@@ -4,6 +4,8 @@ import Banner from '../components/Home/Banner';
 import featuredProducts from '../data/products';
 import { useCart } from '../context/CartContext';
 import CartIcon from '../components/CartIcon';
+import ImageCarousel from '../components/Home/ImageCarousel';
+
 
 const formatVNĐ = (number) => {
   if (typeof number === 'string' && number.toLowerCase() === 'liên hệ') {
@@ -171,6 +173,7 @@ const Home = () => {
             />
           );
         })}
+          <ImageCarousel />
       </section>
     </div>
   );

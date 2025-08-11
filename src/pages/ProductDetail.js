@@ -314,7 +314,7 @@ const ProductDetail = () => {
         onClick={() => navigate(-1)}
         style={{
           position: 'fixed',
-          top: 60,
+          top: 100,
           left: 10,
           backgroundColor: '#007bff',       // màu xanh nổi bật
           color: 'white',

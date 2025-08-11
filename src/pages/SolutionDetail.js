@@ -11,6 +11,12 @@ const solutions = [
       'Giải pháp bao gồm hệ thống máy móc tự động, robot, phần mềm điều khiển thông minh, cảm biến và hệ thống giám sát tập trung. Mục tiêu là tối ưu hóa toàn bộ quy trình từ nhập nguyên liệu, sản xuất, kiểm tra chất lượng, đến đóng gói và vận chuyển.',
     icon: '⚙️',
     image: '/images/automation.jpg',
+    featuresImage: '/images/automation-features.jpg',     // ảnh cho "Tính năng nổi bật"
+    benefitsImage: '/images/automation-benefits.jpg',     // ảnh cho "Lợi ích mang lại"
+    applicationsImage: '/images/automation-applications.jpg', // ảnh cho "Ứng dụng thực tế"
+    specsImage: '/images/automation-specs.jpg',           // ảnh cho "Thông số kỹ thuật"
+    caseStudyImage: '/images/automation-case.jpg',        // ảnh cho Case Study
+    processImage: '/images/automation-process.jpg',       // ảnh cho "Quy trình triển khai"
     features: [
       'Dây chuyền sản xuất tự động',
       'Robot lắp ráp và vận chuyển',
@@ -49,6 +55,7 @@ const solutions = [
       'Bàn giao và hỗ trợ bảo trì'
     ],
     video: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+    
   },
   {
     id: 'remote-control',
@@ -59,6 +66,12 @@ const solutions = [
       'Sử dụng công nghệ IoT và điện toán đám mây để kết nối toàn bộ hệ thống máy móc, cảm biến, camera giám sát và phần mềm điều khiển. Người quản lý có thể truy cập dữ liệu và điều khiển mọi thứ từ bất kỳ đâu qua ứng dụng web hoặc di động.',
     icon: '📡',
     image: '/images/remote-control.jpg',
+    featuresImage: '/images/remote-control-features.jpg',     // ảnh cho "Tính năng nổi bật"
+    benefitsImage: '/images/remote-control-benefits.jpg',     // ảnh cho "Lợi ích mang lại"
+    applicationsImage: '/images/remote-control-applications.jpg', // ảnh cho "Ứng dụng thực tế"
+    specsImage: '/images/remote-control-specs.jpg',           // ảnh cho "Thông số kỹ thuật"
+    caseStudyImage: '/images/remote-control-case.jpg',        // ảnh cho Case Study
+    processImage: '/images/remote-control-process.jpg',       // ảnh cho "Quy trình triển khai"
     features: [
       'Giám sát video thời gian thực',
       'Báo cáo dữ liệu tự động',
@@ -106,7 +119,13 @@ const solutions = [
     details:
       'Triển khai các cảm biến đo lường, bộ thu thập dữ liệu, và phần mềm phân tích. Tất cả dữ liệu được gửi về hệ thống trung tâm, áp dụng AI để tối ưu vận hành và dự đoán sự cố.',
     icon: '🌐',
-    image: '/images/iot.jpg',
+    image: '/images/iot-integration.jpg',
+    featuresImage: '/images/iot-integration-features.jpg',     // ảnh cho "Tính năng nổi bật"
+    benefitsImage: '/images/iot-integration-benefits.jpg',     // ảnh cho "Lợi ích mang lại"
+    applicationsImage: '/images/iot-integration-applications.jpg', // ảnh cho "Ứng dụng thực tế"
+    specsImage: '/images/iot-integration-specs.jpg',           // ảnh cho "Thông số kỹ thuật"
+    caseStudyImage: '/images/iot-integration-case.jpg',        // ảnh cho Case Study
+    processImage: '/images/iot-integration-process.jpg',       // ảnh cho "Quy trình triển khai"
     features: [
       'Kết nối hàng nghìn thiết bị',
       'Thu thập dữ liệu thời gian thực',
@@ -155,6 +174,12 @@ const solutions = [
       'Áp dụng công nghệ AI, Machine Learning để xử lý dữ liệu lớn từ nhiều nguồn: máy móc, cảm biến, hệ thống ERP. Mục tiêu là phát hiện bất thường sớm, tối ưu sản xuất và lập kế hoạch thông minh.',
     icon: '📊',
     image: '/images/data-analysis.jpg',
+    featuresImage: '/images/data-analysis-features.jpg',     // ảnh cho "Tính năng nổi bật"
+    benefitsImage: '/images/data-analysis-benefits.jpg',     // ảnh cho "Lợi ích mang lại"
+    applicationsImage: '/images/data-analysis-applications.jpg', // ảnh cho "Ứng dụng thực tế"
+    specsImage: '/images/data-analysis-specs.jpg',           // ảnh cho "Thông số kỹ thuật"
+    caseStudyImage: '/images/data-analysis-case.jpg',        // ảnh cho Case Study
+    processImage: '/images/data-analysis-process.jpg',       // ảnh cho "Quy trình triển khai"
     features: [
       'Xử lý dữ liệu lớn (Big Data)',
       'Mô hình AI dự đoán sự cố',
@@ -205,8 +230,21 @@ const SolutionDetail = () => {
     return (
       <div style={{ padding: 20, textAlign: 'center' }}>
         <h2>Giải pháp không tồn tại</h2>
-        <button onClick={() => navigate(-1)} style={styles.backButton}>
-          ← Quay lại
+        <button onClick={() => navigate(-1)} 
+          style={{
+            position: "absolute", // nếu muốn cố định khi cuộn thì dùng "fixed"
+            top: 20,
+            left: 20,
+            zIndex: 1000,
+            padding: '8px 15px',
+            cursor: 'pointer',
+            borderRadius: '6px',
+            border: 'none',
+            backgroundColor: '#007bff',
+            color: 'white',
+          }}
+        >
+          ← Quay lại 
         </button>
       </div>
     );
@@ -214,8 +252,25 @@ const SolutionDetail = () => {
 
   return (
     <div style={styles.container}>
-      <button onClick={() => navigate(-1)} style={styles.backButton}>
-        ← Quay lại
+      <button onClick={() => navigate(-1)} 
+        style={{
+          position: 'fixed',
+          top: 100,
+          left: 10,
+          backgroundColor: '#007bff',       // màu xanh nổi bật
+          color: 'white',
+          fontWeight: '600',
+          fontSize: '16px',
+          padding: '8px 16px',
+          borderRadius: '8px',
+          border: 'none',
+          boxShadow: '0 4px 8px rgba(0, 123, 255, 0.3)',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
+          zIndex: 9999,
+        }}
+      >
+        ← Quay lại trang trước
       </button>
 
       {/* Ảnh nằm trên cùng */}
@@ -230,57 +285,150 @@ const SolutionDetail = () => {
         <p style={styles.details}>{solution.details}</p>
       </div>
 
-      {/* Tính năng */}
-      <section style={styles.section}>
-        <h2>🔹 Tính năng nổi bật</h2>
-        <ul>{solution.features.map((f, i) => <li key={i}>{f}</li>)}</ul>
+      {/* Tính năng nổi bật (ảnh bên trái) */}
+      <section
+        style={{
+          ...styles.section,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 20,
+          flexDirection: 'row',  // ảnh bên trái
+        }}
+      >
+        <img
+          src={solution.featuresImage}
+          alt="Tính năng nổi bật"
+          style={styles.sectionImageLeft}  // sửa dùng ảnh bên trái
+        />
+        <div style={{ flex: 1, paddingLeft: 10 /* khoảng cách chữ so với lề trái */ }}>
+          <h2>🔹 Tính năng nổi bật</h2>
+          <ul>{solution.features.map((f, i) => <li key={i}>{f}</li>)}</ul>
+        </div>
       </section>
 
-      {/* Lợi ích */}
-      <section style={styles.section}>
-        <h2>💡 Lợi ích mang lại</h2>
-        <ul>{solution.benefits.map((b, i) => <li key={i}>{b}</li>)}</ul>
+      {/* Lợi ích mang lại (ảnh bên phải) */}
+      <section
+        style={{
+          ...styles.section,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 20,
+          flexDirection: 'row-reverse',
+        }}
+      >
+        <img
+          src={solution.benefitsImage}
+          alt="Lợi ích mang lại"
+          style={styles.sectionImageRight}  // sửa lại ở đây
+        />
+          <div style={{ flex: 1, paddingRight: 20 /* khoảng cách chữ so với lề phải */ }}>
+          <h2>💡 Lợi ích mang lại</h2>
+          <ul>{solution.benefits.map((b, i) => <li key={i}>{b}</li>)}</ul>
+        </div>
       </section>
 
-      {/* Ứng dụng */}
-      <section style={styles.section}>
-        <h2>🏭 Ứng dụng thực tế</h2>
-        <ul>{solution.applications.map((a, i) => <li key={i}>{a}</li>)}</ul>
+
+      {/* Ứng dụng thực tế (ảnh bên trái) */}
+      <section
+        style={{
+          ...styles.section,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 20,
+          flexDirection: 'row',  // ảnh bên trái
+        }}
+      >
+        <img
+          src={solution.applicationsImage}
+          alt="Ứng dụng thực tế"
+          style={styles.sectionImageLeft}  // sửa dùng ảnh trái
+        />
+        <div style={{ flex: 1, paddingLeft: 10 /* khoảng cách chữ so với lề trái */ }}>
+          <h2>🏭 Ứng dụng thực tế</h2>
+          <ul>{solution.applications.map((a, i) => <li key={i}>{a}</li>)}</ul>
+        </div>
       </section>
 
-      {/* Thông số kỹ thuật */}
+
+      {/* Thông số kỹ thuật (ảnh bên phải) */}
       {solution.specs && (
-        <section style={styles.section}>
-          <h2>📋 Thông số kỹ thuật</h2>
-          <table style={styles.table}>
-            <tbody>
-              {solution.specs.map((spec, i) => (
-                <tr key={i}>
-                  <td style={styles.tdLabel}>{spec.label}</td>
-                  <td>{spec.value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <section
+          style={{
+            ...styles.section,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 20,
+            flexDirection: 'row-reverse',  // ảnh bên phải
+          }}
+        >
+          <img
+            src={solution.specsImage}
+            alt="Thông số kỹ thuật"
+            style={styles.sectionImageRight}  // sửa dùng ảnh phải
+          />
+          <div style={{ flex: 1, paddingRight: 20 /* khoảng cách chữ so với lề phải */ }}>
+            <h2>📋 Thông số kỹ thuật</h2>
+            <table style={styles.table}>
+              <tbody>
+                {solution.specs.map((spec, i) => (
+                  <tr key={i}>
+                    <td style={styles.tdLabel}>{spec.label}</td>
+                    <td>{spec.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
 
-      {/* Case Study */}
+      {/* Case Study: Triển khai tại Nhà máy ABC (ảnh bên trái) */}
       {solution.caseStudy && (
-        <section style={styles.section}>
-          <h2>📌 Case Study: {solution.caseStudy.title}</h2>
-          <img src={solution.caseStudy.image} alt="Case Study" style={styles.caseImage} />
-          <p>{solution.caseStudy.content}</p>
+        <section
+          style={{
+            ...styles.section,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 20,
+            flexDirection: 'row',
+          }}
+        >
+          <img
+            src={solution.caseStudyImage}
+            alt="Case Study"
+            style={styles.sectionImageLeft}  // Dùng style ảnh trái cân đối
+          />
+          <div style={{ flex: 1, paddingLeft: 10 /* khoảng cách chữ so với lề trái */ }}>
+            <h2>📌 Case Study: {solution.caseStudy.title}</h2>
+            <p>{solution.caseStudy.content}</p>
+          </div>
         </section>
       )}
 
-      {/* Quy trình */}
+
+      {/* Quy trình triển khai (ảnh bên phải) */}
       {solution.process && (
-        <section style={styles.section}>
-          <h2>🛠 Quy trình triển khai</h2>
-          <ol>{solution.process.map((step, i) => <li key={i}>{step}</li>)}</ol>
+        <section
+          style={{
+            ...styles.section,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 20,
+            flexDirection: 'row-reverse',  // ảnh bên phải
+          }}
+        >
+          <img
+            src={solution.processImage }
+            alt="Quy trình triển khai"
+            style={styles.sectionImageRight}  // sửa dùng ảnh phải
+          />
+          <div style={{ flex: 1, paddingRight: 20 /* khoảng cách chữ so với lề phải */ }}>
+            <h2>🛠 Quy trình triển khai</h2>
+            <ol>{solution.process.map((step, i) => <li key={i}>{step}</li>)}</ol>
+          </div>
         </section>
       )}
+
 
       {/* Video minh họa */}
       {solution.video && (
@@ -303,16 +451,32 @@ const SolutionDetail = () => {
       <section style={{ ...styles.section, textAlign: 'center' }}>
         <h2>🚀 Sẵn sàng triển khai giải pháp?</h2>
         <p>Liên hệ ngay với chúng tôi để được tư vấn chi tiết và nhận báo giá tốt nhất.</p>
-        <button style={styles.ctaButton}>📞 Liên hệ tư vấn</button>
+        <button
+          style={styles.ctaButton}
+          onClick={() => navigate('/contact')}
+        >
+          📞 Liên hệ tư vấn
+        </button>
       </section>
     </div>
   );
 };
 
 const styles = {
-  container: { maxWidth: 900, margin: '40px auto', padding: 20, fontFamily: "'Segoe UI', sans-serif", lineHeight: 1.6, color: '#333' },
+  container: { maxWidth: 1200, margin: '40px auto', padding: 20, fontFamily: "'Segoe UI', sans-serif", lineHeight: 1.6, color: '#333' },
   backButton: { marginBottom: 20, padding: '8px 15px', cursor: 'pointer', borderRadius: '6px', border: 'none', backgroundColor: '#007bff', color: 'white' },
-  headerImage: { width: '100%', height: 350, objectFit: 'cover', borderRadius: 8, marginBottom: 20 },
+  headerImage: {
+    display: 'block',      // chuyển ảnh thành block để margin auto có hiệu lực
+    marginLeft: 'auto',   // căn giữa ngang
+    marginRight: 'auto',  // căn giữa ngang
+    width: '60%',      // ảnh rộng hết container
+    height: 'auto',     // giữ tỉ lệ gốc ảnh
+    maxWidth: 'none',   // bỏ giới hạn chiều rộng nếu có
+    maxHeight: 'none',  // bỏ giới hạn chiều cao nếu có
+    objectFit: 'contain', // giữ nguyên ảnh, không cắt
+    borderRadius: 0,
+    marginTop: 0,
+  },
   title: { fontSize: '2rem', marginBottom: 10 },
   description: { fontSize: '1.2rem', color: '#555', marginBottom: 10 },
   details: { fontSize: '1rem', marginBottom: 30 },
@@ -321,7 +485,24 @@ const styles = {
   tdLabel: { fontWeight: 'bold', paddingRight: 15, width: '40%' },
   caseImage: { width: '100%', borderRadius: 8, margin: '15px 0' },
   videoWrapper: { marginTop: 10 },
-  ctaButton: { padding: '12px 20px', fontSize: '1rem', border: 'none', borderRadius: '8px', backgroundColor: '#28a745', color: 'white', cursor: 'pointer' }
+  ctaButton: { padding: '12px 20px', fontSize: '1rem', border: 'none', borderRadius: '8px', backgroundColor: '#28a745', color: 'white', cursor: 'pointer' },
+  // ==== Thêm 2 style mới cho ảnh trái và phải ====
+  sectionImageLeft: {
+    width: '45%',        // ảnh bên trái chiếm 45% container
+    height: 'auto',
+    borderRadius: 8,
+    marginRight: 100,     // cách giữa ảnh và nội dung bên phải
+    objectFit: 'cover',
+    flexShrink: 0
+  },
+  sectionImageRight: {
+    width: '45%',        // ảnh bên phải chiếm 45% container
+    height: 'auto',
+    borderRadius: 8,
+    marginLeft: 100,      // cách giữa ảnh và nội dung bên trái
+    objectFit: 'cover',
+    flexShrink: 0
+  }
 };
 
 export default SolutionDetail;
