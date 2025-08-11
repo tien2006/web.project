@@ -14,15 +14,13 @@ const formatVNĐ = (number) => {
 };
 
 const categoryColors = {
-  PLC: '#e3f2fd',       // xanh nhạt
-  'Cảm biến': '#fff3e0', // cam nhạt
-  HMI: '#e8f5e9',        // xanh lá nhạt
+  PLC: '#e3f2fd',
+  'Cảm biến': '#fff3e0',
+  HMI: '#e8f5e9',
 };
 
-// Component con: hiển thị nhóm sản phẩm theo category
 const ProductCategorySection = ({ category, products, onAddToCart }) => (
   <section style={{ marginBottom: '50px' }}>
-    {/* Chỉ tô màu nền cho phần tiêu đề */}
     <div
       className="category-title"
       style={{ backgroundColor: categoryColors[category] || '#fff' }}
@@ -30,7 +28,6 @@ const ProductCategorySection = ({ category, products, onAddToCart }) => (
       <h3>{category}</h3>
     </div>
 
-    {/* Phần sản phẩm */}
     <div className="product-grid">
       {products.map((product) => (
         <div key={product.id} className="product-card">
@@ -44,12 +41,7 @@ const ProductCategorySection = ({ category, products, onAddToCart }) => (
               flexDirection: 'column',
             }}
           >
-            <img
-              src={product.image}
-              alt={product.name}
-              className="product-image"
-              // Bỏ height inline, CSS sẽ xử lý
-            />
+            <img src={product.image} alt={product.name} className="product-image" />
             <div
               className="product-info"
               style={{
@@ -63,11 +55,25 @@ const ProductCategorySection = ({ category, products, onAddToCart }) => (
             >
               <div className="product-details">
                 <h3 style={{ fontSize: '14px', margin: '0 0 6px 0' }}>{product.name}</h3>
-                <p style={{ fontSize: '12px', color: '#666', marginBottom: '8px', minHeight: '20px' }}>
+                <p
+                  style={{
+                    fontSize: '12px',
+                    color: '#666',
+                    marginBottom: '8px',
+                    minHeight: '20px',
+                  }}
+                >
                   {product.description}
                 </p>
               </div>
-              <p className="price" style={{ fontSize: '14px', fontWeight: 'bold', color: '#e63946' }}>
+              <p
+                className="price"
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 'bold',
+                  color: '#e63946',
+                }}
+              >
                 {formatVNĐ(product.price)}
               </p>
             </div>
@@ -107,8 +113,6 @@ const ProductCategorySection = ({ category, products, onAddToCart }) => (
 
 const Home = () => {
   const { addToCart } = useCart();
-
-  // Lấy danh sách category duy nhất từ featuredProducts
   const categories = [...new Set(featuredProducts.map((p) => p.category))];
 
   const handleAddToCart = (product) => {
@@ -126,38 +130,42 @@ const Home = () => {
       }}
     >
       <CartIcon />
-
       <Banner />
 
-      {/* Phần "Về chúng tôi" giữ nguyên */}
-      <section className="about-section">
-        <h2>Về chúng tôi</h2>
-        <p>
-          Chúng tôi cung cấp các thiết bị tự động hóa hàng đầu, giúp tối ưu hóa quy trình sản xuất và nâng cao chất
-          lượng sản phẩm. Với đội ngũ kỹ thuật giàu kinh nghiệm, cam kết đem đến giải pháp phù hợp nhất cho khách hàng.
-        </p>
-      </section>
+      {/* Bao bọc toàn bộ nội dung chính bằng container */}
+      <div className="container">
+        {/* Về chúng tôi */}
+        <section className="about-section">
+          <h2>Về chúng tôi</h2>
+          <p>
+            Chúng tôi cung cấp các thiết bị tự động hóa hàng đầu, giúp tối ưu hóa quy
+            trình sản xuất và nâng cao chất lượng sản phẩm. Với đội ngũ kỹ thuật giàu
+            kinh nghiệm, cam kết đem đến giải pháp phù hợp nhất cho khách hàng.
+          </p>
+        </section>
 
-      <section className="featured-products-section">
-        <h2>Sản phẩm nổi bật</h2>
+        {/* Sản phẩm nổi bật */}
+        <section className="featured-products-section">
+          <h2>Sản phẩm nổi bật</h2>
+          {categories.map((category) => {
+            const productsInCategory = featuredProducts.filter(
+              (p) => p.category === category
+            );
+            return (
+              <ProductCategorySection
+                key={category}
+                category={category}
+                products={productsInCategory}
+                onAddToCart={handleAddToCart}
+              />
+            );
+          })}
 
-        {/* Lặp qua các category để hiển thị từng nhóm sản phẩm */}
-        {categories.map((category) => {
-          const productsInCategory = featuredProducts.filter((p) => p.category === category);
-          return (
-            <ProductCategorySection
-              key={category}
-              category={category}
-              products={productsInCategory}
-              onAddToCart={handleAddToCart}
-            />
-          );
-        })}
-
-        {/* Dòng chữ mục hình ảnh nổi bật */}
-        <h2 className="highlighted-images-title">Hình ảnh nổi bật</h2>
-        <ImageCarousel />
-      </section>
+          {/* Hình ảnh nổi bật */}
+          <h2 className="highlighted-images-title">Hình ảnh nổi bật</h2>
+          <ImageCarousel />
+        </section>
+      </div>
     </div>
   );
 };
