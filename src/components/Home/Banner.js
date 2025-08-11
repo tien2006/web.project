@@ -6,7 +6,7 @@ const Banner = () => {
     <div style={{ textAlign: 'center' }}>
       {/* Ảnh banner */}
       <img
-        src="/images/banner.jpg"
+        src="https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896856/banner_p5beau.png"
         alt="Banner"
         style={{ width: '60%', height: 'auto', display: 'block', margin: '0 auto' }}
       />

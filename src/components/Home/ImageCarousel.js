@@ -2,42 +2,42 @@ import React, { useState } from 'react';
 
 const images = [
   {
-    src: '/images/slider1.jpg',
+    src: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896862/slider1_huiicr.jpg',
     title: 'Digital Solutions',
     desc: 'Find out more about Digital Solutions here.',
   },
   {
-    src: '/images/slider2.jpg',
+    src: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896862/slider2_vfkzij.webp',
     title: 'Service Agreements',
     desc: 'Details about Service Agreements.',
   },
   {
-    src: '/images/slider3.jpg',
+    src: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896862/slider3_kyk7cf.jpg',
     title: 'Automation Technology',
     desc: 'Explore our Automation Technology.',
   },
   {
-    src: '/images/slider4.jpg',
+    src: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896863/slider4_evlbtc.png',
     title: 'Parts',
     desc: 'Explore our Automation Technology.',
   },
   {
-    src: '/images/slider5.jpg',
+    src: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896863/slider5_pryu22.jpg',
     title: 'Maintenance',
     desc: 'Explore our Automation Technology.',
   },
   {
-    src: '/images/slider6.jpg',
+    src: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896863/slider6_m7ekft.jpg',
     title: 'Support',
     desc: 'Explore our Automation Technology.',
   },
   {
-    src: '/images/slider7.jpg',
+    src: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896863/slider7_a4odjy.jpg',
     title: 'Training',
     desc: 'Explore our Automation Technology.',
   },
   {
-    src: '/images/slider8.jpg',
+    src: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896863/slider8_hsd9zs.png',
     title: 'Expert Service',
     desc: 'Explore our Automation Technology.',
   },

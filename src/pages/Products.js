@@ -11,7 +11,7 @@ const allProducts = [
     type: 'PLC',
     category: 'Tự động hóa',
     model: 'FX5U',
-    image: 'images/FX5U.jpg',
+    image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
     description: 'Bộ điều khiển lập trình FX5U hiệu suất cao.',
     price: 15000000,
   },

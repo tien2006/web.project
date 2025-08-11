@@ -63,7 +63,7 @@ const Header = () => {
           {/* Logo + tên bên trái */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <img
-              src="/images/logo.png"
+              src="https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/logo_d6trhr.png"
               alt="Logo"
               style={{ height: '50px', width: 'auto' }}
             />

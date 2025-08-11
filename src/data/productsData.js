@@ -3,7 +3,7 @@ export const productsData = [
   {
     id: 'plc',
     name: 'PLC',
-    image: '/images/categories/plc.jpg',
+    image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
     products: [
       {
         id: 'plc1',

@@ -6,7 +6,7 @@ const Footer = () => {
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', maxWidth: '1200px', margin: '0 auto' }}>
         {/* Logo và địa chỉ */}
         <div style={{ flex: '1 1 300px', marginBottom: '20px' }}>
-          <img src="/logo192.png" alt="Logo" style={{ height: '50px', marginBottom: '10px' }} />
+          <img src="https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/logo192_prxrmp.png" alt="Logo" style={{ height: '50px', marginBottom: '10px' }} />
           <h3>CÔNG TY CỔ PHẦN GIẢI PHÁP TỰ ĐỘNG HÓA TTA</h3>
           <p>
             Trụ sở chính: Liên Chiểu, Đà Nẵng<br />

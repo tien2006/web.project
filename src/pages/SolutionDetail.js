@@ -10,13 +10,13 @@ const solutions = [
     details:
       'Giải pháp bao gồm hệ thống máy móc tự động, robot, phần mềm điều khiển thông minh, cảm biến và hệ thống giám sát tập trung. Mục tiêu là tối ưu hóa toàn bộ quy trình từ nhập nguyên liệu, sản xuất, kiểm tra chất lượng, đến đóng gói và vận chuyển.',
     icon: '⚙️',
-    image: '/images/automation.jpg',
-    featuresImage: '/images/automation-features.jpg',     // ảnh cho "Tính năng nổi bật"
-    benefitsImage: '/images/automation-benefits.jpg',     // ảnh cho "Lợi ích mang lại"
-    applicationsImage: '/images/automation-applications.jpg', // ảnh cho "Ứng dụng thực tế"
-    specsImage: '/images/automation-specs.jpg',           // ảnh cho "Thông số kỹ thuật"
-    caseStudyImage: '/images/automation-case.jpg',        // ảnh cho Case Study
-    processImage: '/images/automation-process.jpg',       // ảnh cho "Quy trình triển khai"
+    image: '/https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/automation_ixy4cw.png',
+    featuresImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',     // ảnh cho "Tính năng nổi bật"
+    benefitsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',     // ảnh cho "Lợi ích mang lại"
+    applicationsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg', // ảnh cho "Ứng dụng thực tế"
+    specsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',           // ảnh cho "Thông số kỹ thuật"
+    caseStudyImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',        // ảnh cho Case Study
+    processImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',       // ảnh cho "Quy trình triển khai"
     features: [
       'Dây chuyền sản xuất tự động',
       'Robot lắp ráp và vận chuyển',
@@ -45,7 +45,7 @@ const solutions = [
       title: 'Triển khai tại Nhà máy ABC',
       content:
         'Nhà máy ABC đã áp dụng giải pháp này và giảm 35% thời gian sản xuất, đồng thời tăng chất lượng sản phẩm đạt chuẩn quốc tế. Hệ thống robot và phần mềm điều khiển giúp tự động hóa hoàn toàn từ khâu nhập nguyên liệu đến đóng gói.',
-      image: '/images/case-automation.jpg'
+      image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg'
     },
     process: [
       'Khảo sát và đánh giá quy trình sản xuất hiện tại',
@@ -65,13 +65,13 @@ const solutions = [
     details:
       'Sử dụng công nghệ IoT và điện toán đám mây để kết nối toàn bộ hệ thống máy móc, cảm biến, camera giám sát và phần mềm điều khiển. Người quản lý có thể truy cập dữ liệu và điều khiển mọi thứ từ bất kỳ đâu qua ứng dụng web hoặc di động.',
     icon: '📡',
-    image: '/images/remote-control.jpg',
-    featuresImage: '/images/remote-control-features.jpg',     // ảnh cho "Tính năng nổi bật"
-    benefitsImage: '/images/remote-control-benefits.jpg',     // ảnh cho "Lợi ích mang lại"
-    applicationsImage: '/images/remote-control-applications.jpg', // ảnh cho "Ứng dụng thực tế"
-    specsImage: '/images/remote-control-specs.jpg',           // ảnh cho "Thông số kỹ thuật"
-    caseStudyImage: '/images/remote-control-case.jpg',        // ảnh cho Case Study
-    processImage: '/images/remote-control-process.jpg',       // ảnh cho "Quy trình triển khai"
+    image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896862/remote-control_noflnz.jpg',
+    featuresImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',     // ảnh cho "Tính năng nổi bật"
+    benefitsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',     // ảnh cho "Lợi ích mang lại"
+    applicationsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg', // ảnh cho "Ứng dụng thực tế"
+    specsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',           // ảnh cho "Thông số kỹ thuật"
+    caseStudyImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',        // ảnh cho Case Study
+    processImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',       // ảnh cho "Quy trình triển khai"
     features: [
       'Giám sát video thời gian thực',
       'Báo cáo dữ liệu tự động',
@@ -100,7 +100,7 @@ const solutions = [
       title: 'Ứng dụng tại Công ty XYZ',
       content:
         'Công ty XYZ đã áp dụng hệ thống điều khiển từ xa, giảm 50% thời gian phản ứng sự cố và tăng hiệu suất vận hành kho hàng lên 25%.',
-      image: '/images/case-remote-control.jpg'
+      image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896862/remote-control_noflnz.jpg'
     },
     process: [
       'Khảo sát hệ thống hiện tại',
@@ -119,13 +119,13 @@ const solutions = [
     details:
       'Triển khai các cảm biến đo lường, bộ thu thập dữ liệu, và phần mềm phân tích. Tất cả dữ liệu được gửi về hệ thống trung tâm, áp dụng AI để tối ưu vận hành và dự đoán sự cố.',
     icon: '🌐',
-    image: '/images/iot-integration.jpg',
-    featuresImage: '/images/iot-integration-features.jpg',     // ảnh cho "Tính năng nổi bật"
-    benefitsImage: '/images/iot-integration-benefits.jpg',     // ảnh cho "Lợi ích mang lại"
-    applicationsImage: '/images/iot-integration-applications.jpg', // ảnh cho "Ứng dụng thực tế"
-    specsImage: '/images/iot-integration-specs.jpg',           // ảnh cho "Thông số kỹ thuật"
-    caseStudyImage: '/images/iot-integration-case.jpg',        // ảnh cho Case Study
-    processImage: '/images/iot-integration-process.jpg',       // ảnh cho "Quy trình triển khai"
+    image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896859/iot-integration_sep1bg.png',
+    featuresImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-features_yt3sem.jpg',     // ảnh cho "Tính năng nổi bật"
+    benefitsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-features_yt3sem.jpg',     // ảnh cho "Lợi ích mang lại"
+    applicationsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-features_yt3sem.jpg', // ảnh cho "Ứng dụng thực tế"
+    specsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-features_yt3sem.jpg',           // ảnh cho "Thông số kỹ thuật"
+    caseStudyImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-features_yt3sem.jpg',        // ảnh cho Case Study
+    processImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-features_yt3sem.jpg',       // ảnh cho "Quy trình triển khai"
     features: [
       'Kết nối hàng nghìn thiết bị',
       'Thu thập dữ liệu thời gian thực',
@@ -154,7 +154,7 @@ const solutions = [
       title: 'Dự án IoT tại Nhà máy DEF',
       content:
         'Nhà máy DEF đã tích hợp hệ thống IoT giúp giảm 15% hao phí nguyên liệu và nâng cao chất lượng sản phẩm qua phân tích dữ liệu thông minh.',
-      image: '/images/case-iot.jpg'
+      image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-features_yt3sem.jpg'
     },
     process: [
       'Đánh giá hạ tầng mạng hiện tại',
@@ -173,13 +173,13 @@ const solutions = [
     details:
       'Áp dụng công nghệ AI, Machine Learning để xử lý dữ liệu lớn từ nhiều nguồn: máy móc, cảm biến, hệ thống ERP. Mục tiêu là phát hiện bất thường sớm, tối ưu sản xuất và lập kế hoạch thông minh.',
     icon: '📊',
-    image: '/images/data-analysis.jpg',
-    featuresImage: '/images/data-analysis-features.jpg',     // ảnh cho "Tính năng nổi bật"
-    benefitsImage: '/images/data-analysis-benefits.jpg',     // ảnh cho "Lợi ích mang lại"
-    applicationsImage: '/images/data-analysis-applications.jpg', // ảnh cho "Ứng dụng thực tế"
-    specsImage: '/images/data-analysis-specs.jpg',           // ảnh cho "Thông số kỹ thuật"
-    caseStudyImage: '/images/data-analysis-case.jpg',        // ảnh cho Case Study
-    processImage: '/images/data-analysis-process.jpg',       // ảnh cho "Quy trình triển khai"
+    image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/data-analysis_khkyhp.png',
+    featuresImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-case_nd7hvu.jpg',     // ảnh cho "Tính năng nổi bật"
+    benefitsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-case_nd7hvu.jpg',     // ảnh cho "Lợi ích mang lại"
+    applicationsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-case_nd7hvu.jpg', // ảnh cho "Ứng dụng thực tế"
+    specsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-case_nd7hvu.jpg',           // ảnh cho "Thông số kỹ thuật"
+    caseStudyImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-case_nd7hvu.jpg',        // ảnh cho Case Study
+    processImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-case_nd7hvu.jpg',       // ảnh cho "Quy trình triển khai"
     features: [
       'Xử lý dữ liệu lớn (Big Data)',
       'Mô hình AI dự đoán sự cố',
@@ -208,7 +208,7 @@ const solutions = [
       title: 'Phân tích dữ liệu tại Nhà máy GHI',
       content:
         'Nhà máy GHI sử dụng hệ thống phân tích dữ liệu và AI để giảm 20% chi phí bảo trì và tăng 15% hiệu suất vận hành tổng thể.',
-      image: '/images/case-data-analysis.jpg'
+      image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/iot-integration-case_nd7hvu.jpg'
     },
     process: [
       'Thu thập dữ liệu đa nguồn',

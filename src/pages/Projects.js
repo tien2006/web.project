@@ -8,7 +8,7 @@ const projectsData = [
     shortDesc: 'Tự động hóa dây chuyền lắp ráp linh kiện với robot và PLC.',
     detailedDesc:
       'Dự án triển khai hệ thống tự động hóa với robot công nghiệp, PLC Siemens và HMI, giúp tăng năng suất 35% và giảm lỗi sản phẩm 20%.',
-    img: '/images/project1.jpg',
+    img: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/project1_uon9ql.jpg',
     videoUrl: 'https://www.youtube.com/embed/ScMzIvxBSi4', // ví dụ video youtube
     feedbacks: [
       {
@@ -37,7 +37,7 @@ const projectsData = [
     shortDesc: 'Hệ thống robot lấy hàng và phần mềm quản lý kho tự động.',
     detailedDesc:
       'Hệ thống robot AGV và phần mềm quản lý kho giúp giảm 40% thời gian lấy hàng, tăng độ chính xác.',
-    img: '/images/project2.jpg',
+    img: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/project2_xqdugd.jpg',
     videoUrl: 'https://www.youtube.com/embed/ysz5S6PUM-U',
     feedbacks: [
       {

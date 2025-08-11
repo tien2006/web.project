@@ -23,7 +23,7 @@ const About = () => {
     <div style={{ maxWidth: 1200, margin: '20px auto', padding: '0 15px', fontFamily: 'Arial, sans-serif' }}>
       {/* Ảnh nhà máy đầu trang */}
       <img
-        src="/images/maymoc.png"
+        src="https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/maymoc_rntajn.png"
         alt="Nhà máy Tự động hóa Thăng Tiến"
         style={{
           width: '100%',

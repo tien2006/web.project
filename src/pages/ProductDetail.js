@@ -9,7 +9,7 @@ const allProducts = [
     brand: 'Mitsubishi',
     type: 'PLC',
     price: 'Liên hệ',
-    image: '/images/FX5U.jpg',
+    image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896858/FX5U_wqcqar.jpg',
     description: 'Bộ điều khiển lập trình FX5U hiệu suất cao, đa dạng cổng kết nối, hỗ trợ mạng công nghiệp.',
     specifications: [
       { label: 'Số ngõ vào/ra', value: '40 điểm I/O' },
@@ -185,7 +185,7 @@ const allProducts = [
     brand: 'Omron',
     type: 'Cảm biến',
     price: 'Liên hệ',
-    image: 'images/omron_e3z.jpg',
+    image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896860/omrone3z_blwqec.webp',
     description: 'Cảm biến quang Omron E3Z cho dây chuyền sản xuất với độ chính xác cao và độ bền ổn định.',
     specifications: [
       { label: 'Loại cảm biến', value: 'Cảm biến quang điện' },
