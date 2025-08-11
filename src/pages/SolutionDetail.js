@@ -10,7 +10,7 @@ const solutions = [
     details:
       'Giải pháp bao gồm hệ thống máy móc tự động, robot, phần mềm điều khiển thông minh, cảm biến và hệ thống giám sát tập trung. Mục tiêu là tối ưu hóa toàn bộ quy trình từ nhập nguyên liệu, sản xuất, kiểm tra chất lượng, đến đóng gói và vận chuyển.',
     icon: '⚙️',
-    image: '/https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/automation_ixy4cw.png',
+    image: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/automation_ixy4cw.png',
     featuresImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',     // ảnh cho "Tính năng nổi bật"
     benefitsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg',     // ảnh cho "Lợi ích mang lại"
     applicationsImage: 'https://res.cloudinary.com/dhzfopfkh/image/upload/v1754896857/data-analysis-process_shc12d.jpg', // ảnh cho "Ứng dụng thực tế"

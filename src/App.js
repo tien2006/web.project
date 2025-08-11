@@ -4,7 +4,7 @@ import {
   Route
 } from "react-router-dom";
 
-import Header from './components/Header';
+import Layout from './components/Layout';
 import Footer from './components/Footer';
 import FloatingContact from './components/FloatingContact';
 
@@ -28,43 +28,38 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Header />
-      <CartIcon />
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <Layout>
+        <CartIcon />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        {/* Trang chi tiết sản phẩm */}
-        <Route path="/product/:id" element={<ProductDetail />} />
+          {/* Trang chi tiết sản phẩm */}
+          <Route path="/product/:id" element={<ProductDetail />} />
 
-        {/* Trang danh sách sản phẩm với params category, type, model (tùy chọn) */}
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:category" element={<Products />} />
-        <Route path="/products/:category/:type" element={<Products />} />
-        <Route path="/products/:category/:type/:model" element={<Products />} />
-        
+          {/* Các route sản phẩm */}
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:category" element={<Products />} />
+          <Route path="/products/:category/:type" element={<Products />} />
+          <Route path="/products/:category/:type/:model" element={<Products />} />
 
-        
+          <Route path="/services" element={<Services />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
 
-        <Route path="/services" element={<Services />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-
-        
-
-        <Route path="/search" element={<Search />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} /> {/* route mới cho thanh toán */}
-        <Route path="/order-history" element={<OrderHistory />} />
-        <Route path="/solutions" element={<Solutions />} />
-        <Route path="/solutions/:solutionId" element={<SolutionDetail />} />
-
-
-      </Routes>
+          <Route path="/search" element={<Search />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order-history" element={<OrderHistory />} />
+          <Route path="/solutions" element={<Solutions />} />
+          <Route path="/solutions/:solutionId" element={<SolutionDetail />} />
+        </Routes>
+      </Layout>
       <Footer />
       <FloatingContact />
     </Router>
   );
 }
+
 
 export default App;

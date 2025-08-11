@@ -248,9 +248,6 @@ const Header = () => {
           </div>
         </nav>
       </header>
-
-      {/* Thêm 1 div padding giữ khoảng trống tránh nội dung bị header cố định đè lên */}
-      <div style={{ height: '60px' }}></div>
     </>
   );
 };
