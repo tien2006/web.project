@@ -159,7 +159,7 @@ const Home = () => {
       </section>
 
       <section style={{ backgroundColor: '#fff', padding: '60px 20px', maxWidth: '1100px', margin: 'auto' }}>
-        <h2 style={{ textAlign: 'center', fontSize: '2rem', marginBottom: '40px', color: '#333' }}>Sản phẩm nổi bật</h2>
+        <h2 style={{ textAlign: 'center', fontSize: '2rem', marginBottom: '40px', color: '#007bff' }}>Sản phẩm nổi bật</h2>
 
         {/* Lặp qua các category để hiển thị từng nhóm sản phẩm */}
         {categories.map((category) => {
@@ -173,6 +173,16 @@ const Home = () => {
             />
           );
         })}
+                  {/* Dòng chữ mục hình ảnh nổi bật */}
+          <h2 style={{
+            textAlign: 'center',
+            fontSize: '2.4rem',
+            margin: '150px 0 2px 0',
+            color: '#007bff',
+            fontWeight: '600',
+          }}>
+            Hình ảnh nổi bật
+          </h2>
           <ImageCarousel />
       </section>
     </div>

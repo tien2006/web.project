@@ -69,7 +69,7 @@ const ImageCarousel = () => {
 // ...code trên như bạn đã có...
 
     return (
-    <div style={{ maxWidth: '900px', margin: '250px auto 100px auto', position: 'relative', userSelect: 'none', overflow: 'visible' }}>
+    <div style={{ maxWidth: '900px', margin: '50px auto 100px auto', position: 'relative', userSelect: 'none', overflow: 'visible' }}>
         <button
         onClick={prevSlide}
         style={{

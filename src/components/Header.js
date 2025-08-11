@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,useLocation  } from 'react-router-dom';
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(null);
@@ -7,7 +7,11 @@ const Header = () => {
   const [openSubSubMenu, setOpenSubSubMenu] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
 
+  const isActive = (path) => {
+  return location.pathname === path || location.pathname.startsWith(path + '/');
+  };
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchTerm.trim()) {
@@ -70,7 +74,8 @@ const Header = () => {
 
           {/* Menu chính bên phải */}
           <div style={{ display: 'flex', gap: '20px', position: 'relative', alignItems: 'center' }}>
-            <Link to="/" style={navLink}>Trang chủ</Link>
+            <Link to="/" style={isActive('/') ? { ...navLink, ...activeStyle } : navLink}>Trang chủ</Link>
+
 
             {/* Sản phẩm */}
             <div
@@ -78,9 +83,7 @@ const Header = () => {
               onMouseEnter={() => handleOpenMenu('products')}
               onMouseLeave={handleCloseMenu}
             >
-              <Link to="/products" style={{ ...navLink, cursor: 'pointer' }}>
-                Sản phẩm 
-              </Link>
+              <Link to="/products" style={isActive('/products') ? { ...navLink, ...activeStyle } : navLink}>Sản phẩm</Link>
 
               {openMenu === 'products' && (
                 <div style={dropdown}>
@@ -165,7 +168,7 @@ const Header = () => {
               onMouseEnter={() => handleOpenMenu('solutions')}
               onMouseLeave={handleCloseMenu}
             >
-              <Link to="/solutions" style={navLink}>Giải pháp </Link>
+              <Link to="/solutions" style={isActive('/solutions') ? { ...navLink, ...activeStyle } : navLink}>Giải pháp</Link>
               {openMenu === 'solutions' && (
                 <div style={dropdown}>
                   {solutions.map(({ id, title }) => (
@@ -187,14 +190,15 @@ const Header = () => {
               onMouseEnter={() => handleOpenMenu('projects')}
               onMouseLeave={handleCloseMenu}
             >
-              <Link to="/projects" style={navLink}>Dự án </Link>
-              {openMenu === 'projects' && (
+              <Link to="/projects" style={isActive('/projects') ? { ...navLink, ...activeStyle } : navLink}>Dự án</Link>
+              {/* Xóa dropdown con */}
+              {/* {openMenu === 'projects' && (
                 <div style={dropdown}>
                   <Link to="/projects/project1" style={dropdownItem}>Dự án A</Link>
                   <Link to="/projects/project2" style={dropdownItem}>Dự án B</Link>
                   <Link to="/projects/project3" style={dropdownItem}>Dự án C</Link>
                 </div>
-              )}
+              )} */}
             </div>
 
             <div
@@ -202,7 +206,7 @@ const Header = () => {
               onMouseEnter={() => handleOpenMenu('about')}
               onMouseLeave={handleCloseMenu}
             >
-              <Link to="/about" style={navLink}>Giới thiệu </Link>
+              <Link to="/about" style={isActive('/about') ? { ...navLink, ...activeStyle } : navLink}>Giới thiệu</Link>
               {openMenu === 'about' && (
                 <div style={dropdown}>
                   <Link to="/about#general" style={dropdownItem}>Giới thiệu chung</Link>
@@ -214,8 +218,7 @@ const Header = () => {
               )}
             </div>
 
-            <Link to="/contact" style={navLink}>Liên hệ</Link>
-
+            <Link to="/contact" style={isActive('/contact') ? { ...navLink, ...activeStyle } : navLink}>Liên hệ</Link>
             {/* Thanh tìm kiếm */}
             <form onSubmit={handleSearchSubmit} 
               style={{
@@ -346,5 +349,12 @@ const searchIcon = {
   transform: 'translateY(-50%)',
   pointerEvents: 'none',
 };
+const activeStyle = {
+  color: '#FFD700',
+  borderBottom: '2px solid #FFD700',
+  paddingBottom: '4px',
+  fontWeight: '700',
+};
+
 
 export default Header;
