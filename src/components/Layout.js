@@ -1,3 +1,4 @@
+// Layout.js
 import React, { useEffect, useState } from 'react';
 import Header from './Header';
 
@@ -5,7 +6,7 @@ const Layout = ({ children }) => {
   const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
-    const headerEl = document.querySelector('header'); // Lấy thẳng phần tử header
+    const headerEl = document.querySelector('header');
 
     const updateHeight = () => {
       if (!headerEl) return;
@@ -40,7 +41,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-
       <main
         style={{
           paddingTop: headerHeight,

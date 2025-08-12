@@ -1,5 +1,4 @@
-// src/components/CartIcon.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -8,13 +7,25 @@ const CartIcon = () => {
   const navigate = useNavigate();
   const { totalItems } = useCart();
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Điều chỉnh vị trí right theo kích thước màn hình
+  // Ví dụ: nhỏ hơn 480px (điện thoại) thì dịch vào 10px, dưới 768px (tablet) 30px, còn desktop 20px
+  const rightPosition = windowWidth <= 480 ? '600px' : windowWidth <= 768 ? '30px' : '20px';
+
   return (
     <div
       onClick={() => navigate('/cart')}
       style={{
         position: 'fixed',
         top: 100,
-        right: 20,
+        right: rightPosition,
         cursor: 'pointer',
         zIndex: 1000,
         color: '#007bff',

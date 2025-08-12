@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const FloatingContact = () => {
   const styleTag = `
@@ -25,6 +25,18 @@ const FloatingContact = () => {
     }
   `;
 
+  // State theo dõi kích thước màn hình
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Tính vị trí right tùy theo kích thước màn hình
+  const rightPosition = windowWidth <= 480 ? '600px' : windowWidth <= 768 ? '30px' : '20px';
+
   const btnStyle = {
     marginBottom: '12px',
     width: '55px',
@@ -40,7 +52,7 @@ const FloatingContact = () => {
 
   const containerStyle = {
     position: 'fixed',
-    right: '20px',
+    right: rightPosition,
     bottom: '80px',
     zIndex: 999,
     display: 'flex',
