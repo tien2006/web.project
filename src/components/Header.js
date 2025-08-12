@@ -76,7 +76,7 @@ const Header = () => {
 
   // Styles (giữ inline giống file gốc)
   const headerFixedStyle = {
-    background: '#007bff',
+    background: 'rgba(0, 123, 255, 0.8)', // blue với opacity 0.8
     padding: '12px 20px',
     color: 'white',
     position: 'fixed',

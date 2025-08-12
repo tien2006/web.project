@@ -35,7 +35,7 @@ const FloatingContact = () => {
   }, []);
 
   // Tính vị trí right tùy theo kích thước màn hình
-  const rightPosition = windowWidth <= 480 ? '600px' : windowWidth <= 768 ? '30px' : '20px';
+  const rightPosition = windowWidth <= 480 ? '10px' : windowWidth <= 768 ? '30px' : '20px';
 
   const btnStyle = {
     marginBottom: '12px',

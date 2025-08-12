@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const images = [
   {
@@ -41,166 +41,221 @@ const images = [
     title: 'Expert Service',
     desc: 'Explore our Automation Technology.',
   },
-  // Bạn thêm ảnh, title, desc tùy ý
 ];
 
 const ImageCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideWidth, setSlideWidth] = useState(300);
+  const [visibleSlides, setVisibleSlides] = useState(3);
   const length = images.length;
-  const slideWidth = 300; // width cố định mỗi slide
-    const slideMargin = 20; // margin tổng 2 bên (vd 10px mỗi bên)
 
-    const totalSlideWidth = slideWidth + slideMargin;
-    const translateX =
+  const slideMargin = 20; // tổng margin 2 bên = 20px
+  const totalSlideWidth = slideWidth + slideMargin;
+
+  // Tính toán translateX như cũ
+  const translateX =
     activeIndex === 0
-        ? 0
-        : activeIndex === length - 1
-        ? (length - 3) * totalSlideWidth
-        : (activeIndex - 1) * totalSlideWidth;
+      ? 0
+      : activeIndex === length - 1
+      ? (length - visibleSlides) * totalSlideWidth
+      : (activeIndex - 1) * totalSlideWidth;
 
-    const prevSlide = () => {
-    setActiveIndex(prevIndex => (prevIndex - 1 + length) % length);
+  // Responsive: thay đổi slideWidth và số slide hiện ra theo chiều rộng màn hình
+  useEffect(() => {
+    const handleResize = () => {
+      const w = window.innerWidth;
+      if (w < 480) {
+        setVisibleSlides(1);
+        setSlideWidth(w * 0.8); // 80% màn hình nhỏ
+      } else if (w < 768) {
+        setVisibleSlides(2);
+        setSlideWidth(w / 2.5);
+      } else {
+        setVisibleSlides(3);
+        setSlideWidth(300);
+      }
     };
+    handleResize(); // gọi ngay để set ban đầu
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-    const nextSlide = () => {
-    setActiveIndex(prevIndex => (prevIndex + 1) % length);  
-    };
+  const prevSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex - 1 + length) % length);
+  };
 
-// ...code trên như bạn đã có...
+  const nextSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % length);
+  };
 
-    return (
-    <div style={{ maxWidth: '900px', margin: '50px auto 100px auto', position: 'relative', userSelect: 'none', overflow: 'visible' }}>
-        <button
+  return (
+    <div
+      style={{
+        maxWidth: `${totalSlideWidth * visibleSlides}px`,
+        margin: '50px auto 100px auto',
+        position: 'relative',
+        userSelect: 'none',
+        overflow: 'hidden', // quan trọng để không tràn sang trái/phải
+      }}
+    >
+      <button
         onClick={prevSlide}
         style={{
-            position: 'absolute', left: '-60px', top: '50%', transform: 'translateY(-50%)',
-            background: 'transparent', border: 'none', fontSize: '2rem', color: '#00b37e', cursor: 'pointer',
-            zIndex: 10, width: '40px', height: '60px', padding: 0,
+          position: 'absolute',
+          left: '5px', // đặt sát trong container, không âm
+          top: '50%',
+          transform: 'translateY(-50%)',
+          background: 'transparent',
+          border: 'none',
+          fontSize: '2rem',
+          color: '#00b37e',
+          cursor: 'pointer',
+          zIndex: 10,
+          width: '40px',
+          height: '60px',
+          padding: 0,
+          userSelect: 'none',
         }}
         aria-label="Previous Slide"
-        >
+      >
         &#10094;
-        </button>
+      </button>
 
-        <div
+      <div
         style={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            overflow: 'hidden',
-            width: `${totalSlideWidth * 3}px`, // show đủ 3 slide (1 lớn + 2 nhỏ)
-            margin: '0 auto',
-            position: 'relative',
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          overflow: 'hidden',
+          width: `${totalSlideWidth * visibleSlides}px`,
+          margin: '0 auto',
+          position: 'relative',
         }}
-        >
+      >
         <div
-            style={{
+          style={{
             display: 'flex',
             transition: 'transform 0.6s ease-in-out',
             transform: `translateX(-${translateX}px)`,
             willChange: 'transform',
-            }}
+          }}
         >
-            {images.map((img, index) => {
-            // Tính vòng tròn để xử lý đầu/cuối
+          {images.map((img, index) => {
+            // Vòng tròn tính chỉ số
             const modIndex = (i, length) => (i + length) % length;
             const circularIndex = modIndex(index, length);
             const circularActive = modIndex(activeIndex, length);
 
-            // Kiểm tra slide active và 2 slide bên cạnh theo vòng tròn
+            // scale, opacity, zIndex, shadow logic giữ nguyên, chỉ sửa điều kiện active cho responsive
             let scale = 0.7;
             let opacity = 0.5;
             let zIndex = 1;
             let boxShadow = 'none';
 
-            if (activeIndex === 0) {
-            // Slide đầu tiên
-            if (index === 0) {
+            if (visibleSlides === 1) {
+              // chỉ 1 slide lớn hiện
+              if (index === activeIndex) {
                 scale = 1;
                 opacity = 1;
                 zIndex = 3;
                 boxShadow = '0 8px 16px rgba(0,0,0,0.3)';
-            } else if (index === 1 || index === 2) {
-                scale = 0.85;
-                opacity = 0.8;
-                zIndex = 2;
-                boxShadow = '0 4px 8px rgba(0,0,0,0.15)';
-            }
-            } else if (activeIndex === length - 1) {
-            // Slide cuối cùng
-            if (index === length - 1) {
+              }
+            } else if (visibleSlides === 2) {
+              // 2 slide hiện
+              if (index === activeIndex) {
                 scale = 1;
                 opacity = 1;
                 zIndex = 3;
                 boxShadow = '0 8px 16px rgba(0,0,0,0.3)';
-            } else if (index === length - 2 || index === length - 3) {
+              } else if (index === activeIndex - 1 || index === activeIndex + 1) {
                 scale = 0.85;
                 opacity = 0.8;
                 zIndex = 2;
                 boxShadow = '0 4px 8px rgba(0,0,0,0.15)';
-            }
+              }
             } else {
-            // Các slide giữa
-            if (index === activeIndex) {
-                scale = 1;
-                opacity = 1;
-                zIndex = 3;
-                boxShadow = '0 8px 16px rgba(0,0,0,0.3)';
-            } else if (index === activeIndex - 1 || index === activeIndex + 1) {
-                scale = 0.85;
-                opacity = 0.8;
-                zIndex = 2;
-                boxShadow = '0 4px 8px rgba(0,0,0,0.15)';
+              // như cũ 3 slide hiện
+              if (activeIndex === 0) {
+                if (index === 0) {
+                  scale = 1;
+                  opacity = 1;
+                  zIndex = 3;
+                  boxShadow = '0 8px 16px rgba(0,0,0,0.3)';
+                } else if (index === 1 || index === 2) {
+                  scale = 0.85;
+                  opacity = 0.8;
+                  zIndex = 2;
+                  boxShadow = '0 4px 8px rgba(0,0,0,0.15)';
+                }
+              } else if (activeIndex === length - 1) {
+                if (index === length - 1) {
+                  scale = 1;
+                  opacity = 1;
+                  zIndex = 3;
+                  boxShadow = '0 8px 16px rgba(0,0,0,0.3)';
+                } else if (index === length - 2 || index === length - 3) {
+                  scale = 0.85;
+                  opacity = 0.8;
+                  zIndex = 2;
+                  boxShadow = '0 4px 8px rgba(0,0,0,0.15)';
+                }
+              } else {
+                if (index === activeIndex) {
+                  scale = 1;
+                  opacity = 1;
+                  zIndex = 3;
+                  boxShadow = '0 8px 16px rgba(0,0,0,0.3)';
+                } else if (index === activeIndex - 1 || index === activeIndex + 1) {
+                  scale = 0.85;
+                  opacity = 0.8;
+                  zIndex = 2;
+                  boxShadow = '0 4px 8px rgba(0,0,0,0.15)';
+                }
+              }
             }
-            }
-
 
             return (
-                <div
+              <div
                 key={index}
                 style={{
-                    flex: '0 0 auto',
-                    width: `${slideWidth}px`,
-                    margin: '0 10px',
-                    position: 'relative',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    boxShadow,
-                    cursor: 'pointer',
-                    backgroundColor: '#fff',
-                    zIndex,
-                    pointerEvents: 'auto',
-                    transform: `scale(${scale})`,
-                    opacity,
-                    transition: 'all 0.6s ease-in-out',
-                    willChange: 'transform, opacity',
+                  flex: '0 0 auto',
+                  width: `${slideWidth}px`,
+                  margin: '0 10px',
+                  position: 'relative',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  boxShadow,
+                  cursor: 'pointer',
+                  backgroundColor: '#fff',
+                  zIndex,
+                  pointerEvents: 'auto',
+                  transform: `scale(${scale})`,
+                  opacity,
+                  transition: 'all 0.6s ease-in-out',
+                  willChange: 'transform, opacity',
                 }}
-                >
+              >
                 <img
-                    src={img.src}
-                    alt={img.title}
-                    style={{
+                  src={img.src}
+                  alt={img.title}
+                  style={{
                     width: '100%',
                     height: '250px',
                     objectFit: 'cover',
                     display: 'block',
-                    }}
+                  }}
                 />
                 {circularIndex === circularActive && (
-                    <div
+                  <div
                     style={{
-                        padding: '10px',
-                        backgroundColor: 'rgba(255,255,255,0.9)',
+                      padding: '10px',
+                      backgroundColor: 'rgba(255,255,255,0.9)',
                     }}
-                    >
-                    <h3 style={{ margin: '0 0 8px', color: '#00b37e' }}>
-                        {img.title}
-                    </h3>
-                    <p style={{ margin: 0, fontSize: '0.9rem', color: '#333' }}>
-                        {img.desc}
-                    </p>
+                  >
+                    <h3 style={{ margin: '0 0 8px', color: '#00b37e' }}>{img.title}</h3>
+                    <p style={{ margin: 0, fontSize: '0.9rem', color: '#333' }}>{img.desc}</p>
                     <button
-                        style={{
+                      style={{
                         marginTop: '10px',
                         padding: '6px 12px',
                         backgroundColor: '#00b37e',
@@ -209,65 +264,69 @@ const ImageCarousel = () => {
                         borderRadius: '6px',
                         cursor: 'pointer',
                         fontWeight: '600',
-                        }}
-                        onClick={() => alert(`Learn more about ${img.title}`)}
+                      }}
+                      onClick={() => alert(`Learn more about ${img.title}`)}
                     >
-                        Learn more
+                      Learn more
                     </button>
-                    </div>
+                  </div>
                 )}
-                </div>
+              </div>
             );
-            })}
+          })}
         </div>
-        </div>
+      </div>
 
-
-
-
-        {/* Dots navigation */}
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      {/* Dots navigation */}
+      <div style={{ textAlign: 'center', marginTop: '20px' }}>
         {images.map((_, idx) => (
-            <span
+          <span
             key={idx}
             onClick={() => setActiveIndex(idx)}
             style={{
-                display: 'inline-block',
-                width: '12px',
-                height: '12px',
-                borderRadius: '50%',
-                margin: '0 6px',
-                cursor: 'pointer',
-                backgroundColor: idx === activeIndex ? '#00b37e' : '#ccc',
-                transition: 'background-color 0.3s ease',
+              display: 'inline-block',
+              width: '12px',
+              height: '12px',
+              borderRadius: '50%',
+              margin: '0 6px',
+              cursor: 'pointer',
+              backgroundColor: idx === activeIndex ? '#00b37e' : '#ccc',
+              transition: 'background-color 0.3s ease',
             }}
             aria-label={`Go to slide ${idx + 1}`}
             role="button"
             tabIndex={0}
             onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') setActiveIndex(idx);
+              if (e.key === 'Enter' || e.key === ' ') setActiveIndex(idx);
             }}
-            />
+          />
         ))}
-        </div>
+      </div>
 
-        <button
+      <button
         onClick={nextSlide}
         style={{
-            position: 'absolute', right: '-100px', top: '50%', transform: 'translateY(-50%)',
-            background: 'transparent', border: 'none', fontSize: '2rem', color: '#00b37e', cursor: 'pointer',
-            zIndex: 10,
-            width: '40px',
-            height: '60px',
-            padding: 0,
+          position: 'absolute',
+          right: '5px', // đặt sát trong container, không âm
+          top: '50%',
+          transform: 'translateY(-50%)',
+          background: 'transparent',
+          border: 'none',
+          fontSize: '2rem',
+          color: '#00b37e',
+          cursor: 'pointer',
+          zIndex: 10,
+          width: '40px',
+          height: '60px',
+          padding: 0,
+          userSelect: 'none',
         }}
         aria-label="Next Slide"
-        >
+      >
         &#10095;
-        </button>
+      </button>
     </div>
-    );
-
+  );
 };
 
 export default ImageCarousel;

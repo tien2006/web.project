@@ -17,7 +17,7 @@ const CartIcon = () => {
 
   // Điều chỉnh vị trí right theo kích thước màn hình
   // Ví dụ: nhỏ hơn 480px (điện thoại) thì dịch vào 10px, dưới 768px (tablet) 30px, còn desktop 20px
-  const rightPosition = windowWidth <= 480 ? '600px' : windowWidth <= 768 ? '30px' : '20px';
+  const rightPosition = windowWidth <= 480 ? '10px' : windowWidth <= 768 ? '30px' : '20px';
 
   return (
     <div
