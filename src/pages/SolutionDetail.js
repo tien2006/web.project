@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';  // thêm useState, useEffect
 import { useParams, useNavigate } from 'react-router-dom';
 
 const solutions = [
@@ -222,6 +222,18 @@ const solutions = [
 ];
 
 const SolutionDetail = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth <= 768);
+    }
+    handleResize(); // chạy khi component mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // ... phần code còn lại giữ nguyên
   const { solutionId } = useParams();
   const navigate = useNavigate();
   const solution = solutions.find((sol) => sol.id === solutionId);
@@ -255,9 +267,9 @@ const SolutionDetail = () => {
       <button onClick={() => navigate(-1)} 
         style={{
           position: 'fixed',
-          top: 100,
+          top: 80,
           left: 10,
-          backgroundColor: '#007bff',       // màu xanh nổi bật
+          backgroundColor: '#007bff',
           color: 'white',
           fontWeight: '600',
           fontSize: '16px',
@@ -270,87 +282,106 @@ const SolutionDetail = () => {
           zIndex: 9999,
         }}
       >
-        ← Quay lại trang trước
+        ← Quay lại
       </button>
 
-      {/* Ảnh nằm trên cùng */}
       <img src={solution.image} alt={solution.title} style={styles.headerImage} />
 
-      {/* Tiêu đề */}
       <h1 style={styles.title}>{solution.icon} {solution.title}</h1>
 
-      {/* Đưa description + details xuống dưới ảnh với margin để cách ảnh */}
       <div style={{ marginTop: 20 }}>
         <p style={styles.description}>{solution.description}</p>
         <p style={styles.details}>{solution.details}</p>
       </div>
 
-      {/* Tính năng nổi bật (ảnh bên trái) */}
+      {/* Tính năng nổi bật */}
       <section
         style={{
           ...styles.section,
           display: 'flex',
           alignItems: 'center',
           gap: 20,
-          flexDirection: 'row',  // ảnh bên trái
+          flexDirection: isMobile ? 'column-reverse' : 'row',
         }}
       >
         <img
           src={solution.featuresImage}
           alt="Tính năng nổi bật"
-          style={styles.sectionImageLeft}  // sửa dùng ảnh bên trái
+          style={{
+            width: isMobile ? '100%' : '45%',
+            height: 'auto',
+            borderRadius: 8,
+            marginRight: isMobile ? 0 : 20,
+            marginBottom: isMobile ? 15 : 0,
+            objectFit: 'cover',
+            flexShrink: 0,
+          }}
         />
-        <div style={{ flex: 1, paddingLeft: 10 /* khoảng cách chữ so với lề trái */ }}>
+        <div style={{ flex: 1, paddingLeft: isMobile ? 0 : 10 }}>
           <h2>🔹 Tính năng nổi bật</h2>
           <ul>{solution.features.map((f, i) => <li key={i}>{f}</li>)}</ul>
         </div>
       </section>
 
-      {/* Lợi ích mang lại (ảnh bên phải) */}
+      {/* Lợi ích mang lại */}
       <section
         style={{
           ...styles.section,
           display: 'flex',
           alignItems: 'center',
           gap: 20,
-          flexDirection: 'row-reverse',
+          flexDirection: isMobile ? 'column-reverse' : 'row-reverse',
         }}
       >
         <img
           src={solution.benefitsImage}
           alt="Lợi ích mang lại"
-          style={styles.sectionImageRight}  // sửa lại ở đây
+          style={{
+            width: isMobile ? '100%' : '45%',
+            height: 'auto',
+            borderRadius: 8,
+            marginLeft: isMobile ? 0 : 20,
+            marginBottom: isMobile ? 15 : 0,
+            objectFit: 'cover',
+            flexShrink: 0,
+          }}
         />
-          <div style={{ flex: 1, paddingRight: 20 /* khoảng cách chữ so với lề phải */ }}>
+        <div style={{ flex: 1, paddingRight: isMobile ? 0 : 20 }}>
           <h2>💡 Lợi ích mang lại</h2>
           <ul>{solution.benefits.map((b, i) => <li key={i}>{b}</li>)}</ul>
         </div>
       </section>
 
-
-      {/* Ứng dụng thực tế (ảnh bên trái) */}
+      {/* Ứng dụng thực tế */}
       <section
         style={{
           ...styles.section,
           display: 'flex',
           alignItems: 'center',
           gap: 20,
-          flexDirection: 'row',  // ảnh bên trái
+          flexDirection: isMobile ? 'column-reverse' : 'row',
         }}
       >
         <img
           src={solution.applicationsImage}
           alt="Ứng dụng thực tế"
-          style={styles.sectionImageLeft}  // sửa dùng ảnh trái
+          style={{
+            width: isMobile ? '100%' : '45%',
+            height: 'auto',
+            borderRadius: 8,
+            marginRight: isMobile ? 0 : 20,
+            marginBottom: isMobile ? 15 : 0,
+            objectFit: 'cover',
+            flexShrink: 0,
+          }}
         />
-        <div style={{ flex: 1, paddingLeft: 10 /* khoảng cách chữ so với lề trái */ }}>
+        <div style={{ flex: 1, paddingLeft: isMobile ? 0 : 10 }}>
           <h2>🏭 Ứng dụng thực tế</h2>
           <ul>{solution.applications.map((a, i) => <li key={i}>{a}</li>)}</ul>
         </div>
       </section>
 
-
-      {/* Thông số kỹ thuật (ảnh bên phải) */}
+      {/* Thông số kỹ thuật */}
       {solution.specs && (
         <section
           style={{
@@ -358,15 +389,23 @@ const SolutionDetail = () => {
             display: 'flex',
             alignItems: 'center',
             gap: 20,
-            flexDirection: 'row-reverse',  // ảnh bên phải
+            flexDirection: isMobile ? 'column-reverse' : 'row-reverse',
           }}
         >
           <img
             src={solution.specsImage}
             alt="Thông số kỹ thuật"
-            style={styles.sectionImageRight}  // sửa dùng ảnh phải
+            style={{
+              width: isMobile ? '100%' : '45%',
+              height: 'auto',
+              borderRadius: 8,
+              marginLeft: isMobile ? 0 : 20,
+              marginBottom: isMobile ? 15 : 0,
+              objectFit: 'cover',
+              flexShrink: 0,
+            }}
           />
-          <div style={{ flex: 1, paddingRight: 20 /* khoảng cách chữ so với lề phải */ }}>
+          <div style={{ flex: 1, paddingRight: isMobile ? 0 : 20 }}>
             <h2>📋 Thông số kỹ thuật</h2>
             <table style={styles.table}>
               <tbody>
@@ -382,7 +421,7 @@ const SolutionDetail = () => {
         </section>
       )}
 
-      {/* Case Study: Triển khai tại Nhà máy ABC (ảnh bên trái) */}
+      {/* Case Study */}
       {solution.caseStudy && (
         <section
           style={{
@@ -390,23 +429,30 @@ const SolutionDetail = () => {
             display: 'flex',
             alignItems: 'center',
             gap: 20,
-            flexDirection: 'row',
+            flexDirection: isMobile ? 'column-reverse' : 'row',
           }}
         >
           <img
             src={solution.caseStudyImage}
             alt="Case Study"
-            style={styles.sectionImageLeft}  // Dùng style ảnh trái cân đối
+            style={{
+              width: isMobile ? '100%' : '45%',
+              height: 'auto',
+              borderRadius: 8,
+              marginRight: isMobile ? 0 : 20,
+              marginBottom: isMobile ? 15 : 0,
+              objectFit: 'cover',
+              flexShrink: 0,
+            }}
           />
-          <div style={{ flex: 1, paddingLeft: 10 /* khoảng cách chữ so với lề trái */ }}>
+          <div style={{ flex: 1, paddingLeft: isMobile ? 0 : 10 }}>
             <h2>📌 Case Study: {solution.caseStudy.title}</h2>
             <p>{solution.caseStudy.content}</p>
           </div>
         </section>
       )}
 
-
-      {/* Quy trình triển khai (ảnh bên phải) */}
+      {/* Quy trình triển khai */}
       {solution.process && (
         <section
           style={{
@@ -414,23 +460,30 @@ const SolutionDetail = () => {
             display: 'flex',
             alignItems: 'center',
             gap: 20,
-            flexDirection: 'row-reverse',  // ảnh bên phải
+            flexDirection: isMobile ? 'column-reverse' : 'row-reverse',
           }}
         >
           <img
-            src={solution.processImage }
+            src={solution.processImage}
             alt="Quy trình triển khai"
-            style={styles.sectionImageRight}  // sửa dùng ảnh phải
+            style={{
+              width: isMobile ? '100%' : '45%',
+              height: 'auto',
+              borderRadius: 8,
+              marginLeft: isMobile ? 0 : 20,
+              marginBottom: isMobile ? 15 : 0,
+              objectFit: 'cover',
+              flexShrink: 0,
+            }}
           />
-          <div style={{ flex: 1, paddingRight: 20 /* khoảng cách chữ so với lề phải */ }}>
+          <div style={{ flex: 1, paddingRight: isMobile ? 0 : 20 }}>
             <h2>🛠 Quy trình triển khai</h2>
             <ol>{solution.process.map((step, i) => <li key={i}>{step}</li>)}</ol>
           </div>
         </section>
       )}
 
-
-      {/* Video minh họa */}
+      {/* Video */}
       {solution.video && (
         <section style={styles.section}>
           <h2>🎥 Video minh họa</h2>
@@ -460,6 +513,8 @@ const SolutionDetail = () => {
       </section>
     </div>
   );
+
+
 };
 
 const styles = {
@@ -488,20 +543,22 @@ const styles = {
   ctaButton: { padding: '12px 20px', fontSize: '1rem', border: 'none', borderRadius: '8px', backgroundColor: '#28a745', color: 'white', cursor: 'pointer' },
   // ==== Thêm 2 style mới cho ảnh trái và phải ====
   sectionImageLeft: {
-    width: '45%',        // ảnh bên trái chiếm 45% container
+    width: '45%',
+    maxWidth: '100%',   // để ảnh không tràn ngoài container nhỏ
     height: 'auto',
     borderRadius: 8,
-    marginRight: 100,     // cách giữa ảnh và nội dung bên phải
+    marginRight: '5%',   // dùng % thay vì 100px
     objectFit: 'cover',
-    flexShrink: 0
+    flexShrink: 0,
   },
   sectionImageRight: {
-    width: '45%',        // ảnh bên phải chiếm 45% container
+    width: '45%',
+    maxWidth: '100%',
     height: 'auto',
     borderRadius: 8,
-    marginLeft: 100,      // cách giữa ảnh và nội dung bên trái
+    marginLeft: '5%',   // dùng % thay vì 100px
     objectFit: 'cover',
-    flexShrink: 0
+    flexShrink: 0,
   }
 };
 

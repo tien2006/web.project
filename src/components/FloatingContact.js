@@ -65,13 +65,13 @@ const FloatingContact = () => {
       <style>{styleTag}</style>
 
       <div style={containerStyle}>
-        <a href="tel:+84965800166" className="wiggle-zoom" style={btnStyle}>
+        <a href="tel:(+81)8023357884" className="wiggle-zoom" style={btnStyle}>
           <img src="https://img.icons8.com/fluency/48/phone.png" alt="Call" style={{ width: '28px' }} />
         </a>
-        <a href="https://zalo.me/84965800166" className="wiggle-zoom" style={btnStyle}>
+        <a href="https://zalo.me/84889322577" className="wiggle-zoom" style={btnStyle}>
           <img src="https://img.icons8.com/color/48/zalo.png" alt="Zalo" style={{ width: '28px' }} />
         </a>
-        <a href="https://m.me/yourpage" className="wiggle-zoom" style={btnStyle}>
+        <a href="https://www.facebook.com/profile.php?id=100027832943014" className="wiggle-zoom" style={btnStyle}>
           <img src="https://img.icons8.com/color/48/facebook-messenger.png" alt="Messenger" style={{ width: '28px' }} />
         </a>
       </div>
