@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 
 const projectsData = [
   {
@@ -62,6 +63,20 @@ const ProjectPage = () => {
   const [filter, setFilter] = useState('Tất cả');
   const [selectedProject, setSelectedProject] = useState(null);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [headerHeight, setHeaderHeight] = useState(0); // ✅ thêm ở đây
+
+  useEffect(() => { // ✅ thêm tiếp ở đây
+    const updateHeaderHeight = () => {
+      const headerEl = document.querySelector('header');
+      if (headerEl) {
+        setHeaderHeight(headerEl.offsetHeight);
+      }
+    };
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+    return () => window.removeEventListener('resize', updateHeaderHeight);
+  }, []);
+
 
   // Lọc dự án theo category
   const filteredProjects =
@@ -165,28 +180,30 @@ const ProjectPage = () => {
       </div>
 
       {/* Modal xem chi tiết */}
-      {selectedProject && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modalTitle"
-          tabIndex={-1}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-            backgroundColor: 'rgba(0,0,0,0.6)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: 20,
-            zIndex: 1000,
-            overflowY: 'auto',
-          }}
-          onClick={() => setSelectedProject(null)}
-        >
+        {selectedProject && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+            tabIndex={-1}
+            style={{
+              position: 'fixed',
+              top: headerHeight, // lùi xuống bằng chiều cao header
+              left: 0,
+              width: '100vw',
+              height: `calc(100vh - ${headerHeight}px)`, // trừ chiều cao header
+              backgroundColor: 'rgba(0,0,0,0.6)',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-start', // để modal bắt đầu ngay dưới header
+              padding: 20,
+              zIndex: 1000,
+              overflowY: 'auto',
+              boxSizing: 'border-box',
+            }}
+            onClick={() => setSelectedProject(null)}
+          >
+
           <div
             onClick={e => e.stopPropagation()}
             style={{

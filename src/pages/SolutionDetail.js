@@ -282,7 +282,7 @@ const SolutionDetail = () => {
           zIndex: 9999,
         }}
       >
-        ← Quay lại
+        ⇦
       </button>
 
       <img src={solution.image} alt={solution.title} style={styles.headerImage} />

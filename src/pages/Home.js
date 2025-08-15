@@ -15,8 +15,11 @@ const formatVNĐ = (number) => {
 
 const categoryColors = {
   PLC: '#e3f2fd',       // xanh nhạt
-  'Cảm biến': '#fff3e0', // cam nhạt
-  HMI: '#e8f5e9',        // xanh lá nhạt
+  'Biến tần': '#e3f2fd',       // xanh nhạt
+  Servo: '#e3f2fd',       // xanh nhạt
+  'I/O': '#e3f2fd',       // xanh nhạt
+  HMI: '#e3f2fd',       // xanh nhạt
+  'Cảm biến': '#e3f2fd',       // xanh nhạt
 };
 
 // Component con: hiển thị nhóm sản phẩm theo category
@@ -204,7 +207,7 @@ const Home = () => {
             fontWeight: '600',
           }}
         >
-          Hình ảnh nổi bật
+          Giải pháp hàng đầu
         </h2>
         <ImageCarousel />
       </section>
