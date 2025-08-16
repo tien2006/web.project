@@ -1235,7 +1235,7 @@ const ProductDetail = () => {
           e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 123, 255, 0.3)';
         }}
       >
-        &larr; Quay lại trang trước
+        ⇦
       </button>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 40, alignItems: 'flex-start' }}>
